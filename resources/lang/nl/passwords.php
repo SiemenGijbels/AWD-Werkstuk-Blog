@@ -18,5 +18,10 @@ return [
     'sent' => 'We hebben je je wachtwoord reset link gemaild!',
     'token' => 'Deze wachtwoord reset token is niet geldig.',
     'user' => "We kunnen geen gebruiker vinden met dit emailadres.",
+    'resetpassword' => 'Reset wachtwoord',
+    'sendlink' => 'Verzend wachtwoord reset link',
+    '' => '',
+    '' => '',
+    '' => '',
 
 ];
