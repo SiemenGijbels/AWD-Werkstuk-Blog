@@ -101,7 +101,7 @@
                     </li>
                 @else
                     <li>
-                        <a href="{{ route('login') }}">@lang('general.signin')</a>
+                        <a href="{{ route('login') }}">@lang('general.login')</a>
                     </li>
                     <li>
                         <a href="{{ route('register') }}">@lang('general.register')</a>

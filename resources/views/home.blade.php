@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @lang('general.loggedin')
                 </div>
             </div>
         </div>

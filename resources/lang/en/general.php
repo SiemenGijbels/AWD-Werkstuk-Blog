@@ -17,13 +17,15 @@ return [
     |
     */
 
-    'signin' => 'Sign in',
+    'login' => 'Log in',
     'register' => 'Register',
+    'logout' => 'Log out',
     'home' => 'Home',
     'documentation' => 'Documentation',
     'laracasts' => 'Laracasts',
     'news' => 'News',
     'forge' => 'Forge',
     'github' => 'GitHub',
+    'loggedin' => 'You are logged in!',
 
 ];
