@@ -24,3 +24,10 @@ Route::post('login', [
     'as' => 'auth.signin' 
 ]);
 
+// LANGUAGES
+
+Route::get('lang/{lang}', [
+    'uses'=>'LanguageController@changeLocale',
+    'as'=>'lang.switch'
+]);
+
