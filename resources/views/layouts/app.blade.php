@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 <div id="app">
@@ -63,25 +65,6 @@
                         <li><a href="{{ route('register') }}">@lang('general.register')</a></li>
                     @else
 
-                        @if (Route::has('login'))
-                            <div class="top-right links">
-                                <ul>
-                                    @auth
-                                        <li>
-                                            <a href="{{ url('/') }}">@lang('general.home')</a>
-                                        </li>
-                                    @else
-                                        <li>
-                                            <a href="{{ route('login') }}">@lang('general.login')</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('register') }}">@lang('general.register')</a>
-                                        </li>
-                                    @endauth
-                                </ul>
-                            </div>
-                        @endif
-
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -102,6 +85,13 @@
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
+                                @if(Auth::user()->type == 1)
+                                    <li>
+                                        <a href="{{ route('admin.index') }}">
+                                            @lang('general.admin')
+                                        </a>
+                                    </li>
+                                @endif
                             </ul>
                         </li>
                     @endguest
@@ -115,5 +105,14 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/masonry.pkgd.min.js') }}" type="text/javascript"></script>
+<script>
+        $('.blogPics').on('load', function() {
+            $('.grid').masonry({
+                itemSelector: '.grid-item'
+            });
+            $('.loading').fadeOut();
+        });
+</script>
 </body>
 </html>

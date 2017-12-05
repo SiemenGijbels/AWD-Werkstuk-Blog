@@ -11,18 +11,29 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', [
+    'uses' => 'PostController@getIndex',
+    'as' => 'content.index'
+])->name('home');
+
+Route::get('post/{id}', [
+    'uses' => 'PostController@getPost',
+    'as' => 'content.post'
+]);
+
+Route::get('post/{id}/Like', [
+    'uses' => 'PostController@getLikePost',
+    'as' => 'content.post.like'
+]);
 
 Route::post('login', [
     'uses' => 'SignInController@signin',
     'as' => 'auth.signin' 
 ]);
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // LANGUAGES
 
@@ -30,4 +41,40 @@ Route::get('lang/{lang}', [
     'uses'=>'LanguageController@changeLocale',
     'as'=>'lang.switch'
 ]);
+
+//  ADMIN
+
+Route::group(['prefix' => 'admin'], function (){
+    //GET routes Admin
+    Route::get('', [
+        'uses' => 'PostController@getAdminIndex',
+        'as' => 'admin.index'
+    ]);
+
+    Route::get('create', [
+        'uses' => 'PostController@getAdminCreate',
+        'as' => 'admin.create'
+    ]);
+
+    Route::get('edit/{id}', [
+        'uses' => 'PostController@getAdminEdit',
+        'as' => 'admin.edit'
+    ]);
+
+    Route::get('delete/{id}', [
+        'uses' => 'PostController@getAdminDelete',
+        'as' => 'admin.delete'
+    ]);
+
+    //POST routes Admin
+    Route::post('edit', [
+        'uses' => 'PostController@postAdminUpdate',
+        'as' => 'admin.update'
+    ]);
+
+    Route::post('create', [
+        'uses' => 'PostController@postAdminCreate',
+        'as' => 'admin.create'
+    ]);
+});
 

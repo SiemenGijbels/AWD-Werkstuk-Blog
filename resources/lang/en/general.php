@@ -27,5 +27,15 @@ return [
     'forge' => 'Forge',
     'github' => 'GitHub',
     'loggedin' => 'You are logged in!',
+    'title' => 'Title',
+    'content' => 'Content',
+    'detail' => 'Detail page',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'moredetails' => 'More details',
+    'newpost' => 'New post',
+    'submit' => 'Submit',
+    'admin' => 'Admin',
+    'loadingblog' => 'Loading blog',
 
 ];

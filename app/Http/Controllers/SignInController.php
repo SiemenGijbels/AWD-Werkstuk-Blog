@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class SignInController extends Controller
 {
@@ -22,7 +22,7 @@ class SignInController extends Controller
         if (Auth::attempt([
             'email' => $request->input('email'), 'password' => $request->input('password')
         ], $request->has('remember'))) {
-            return redirect()->route('home');
+            return redirect('/');
         }
         return redirect()->back()->with('fail', 'Authentication failed!');
     }

@@ -27,5 +27,15 @@ return [
     'forge' => 'Forge',
     'github' => 'GitHub',
     'loggedin' => 'Je bent ingelogd!',
+    'title' => 'Titel',
+    'content' => 'Inhoud',
+    'detail' => 'Detailpagina',
+    'edit' => 'Bewerk',
+    'delete' => 'Verwijder',
+    'moredetails' => 'Meer details',
+    'newpost' => 'Nieuwe post',
+    'submit' => 'Indienen',
+    'admin' => 'Admin',
+    'loadingblog' => 'Blog laden',
 
 ];
