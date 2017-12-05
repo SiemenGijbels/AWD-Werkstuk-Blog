@@ -12,7 +12,7 @@ Error: File to import not found or unreadable: ~bootstrap-sass/assets/stylesheet
 8: //own stuff
 9: 
 10: .grid-item {
-11:   width: percentage(.70/3);
+11:   width: percentage(.85/3);
 
 Backtrace:
 app.scss:6
@@ -58,4 +58,4 @@ app.scss:6
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~bootstrap-sass/assets/stylesheets/bootstrap.\A         on line 6 of app.scss\A \A 1: // Fonts\A 2: @import url(\"https://fonts.googleapis.com/css?family=Raleway:300,400,600\");\A 3: // Variables\A 4: @import \"variables\";\A 5: // Bootstrap\A 6: @import \"~bootstrap-sass/assets/stylesheets/bootstrap\";\A 7: \A 8: //own stuff\A 9: \A 10: .grid-item {\A 11:   width: percentage(.70/3);"; }
+  content: "Error: File to import not found or unreadable: ~bootstrap-sass/assets/stylesheets/bootstrap.\A         on line 6 of app.scss\A \A 1: // Fonts\A 2: @import url(\"https://fonts.googleapis.com/css?family=Raleway:300,400,600\");\A 3: // Variables\A 4: @import \"variables\";\A 5: // Bootstrap\A 6: @import \"~bootstrap-sass/assets/stylesheets/bootstrap\";\A 7: \A 8: //own stuff\A 9: \A 10: .grid-item {\A 11:   width: percentage(.85/3);"; }

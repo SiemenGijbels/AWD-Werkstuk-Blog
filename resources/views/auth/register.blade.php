@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page_title', trans('general.register'))
+
 @section('content')
     <div class="content">
         <div class="container">

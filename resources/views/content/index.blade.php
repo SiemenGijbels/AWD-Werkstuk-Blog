@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page_title', 'Blog Laravel')
+
 @section('content')
         <div class="loading">
             <h1>@lang('general.loadingblog')</h1>

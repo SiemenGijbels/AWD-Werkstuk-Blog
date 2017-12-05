@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page_title', trans('passwords.sendlink'))
+
 @section('content')
     <div class="content">
         <div class="container">

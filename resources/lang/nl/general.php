@@ -37,5 +37,8 @@ return [
     'submit' => 'Indienen',
     'admin' => 'Admin',
     'loadingblog' => 'Blog laden',
+    'adminindex' => 'Admin dashboard',
+    'adminedit' => 'Bewerk post',
+    'admincreate' => 'Maak post',
 
 ];

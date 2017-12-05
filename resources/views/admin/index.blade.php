@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page_title', trans('general.adminindex'))
+
 @section('content')
     <div class="content">
     @if(Session::has('info'))

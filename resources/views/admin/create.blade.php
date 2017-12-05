@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('page_title', trans('general.admincreate'))
+
 @section('content')
     <div class="content">
         @if(count($errors->all()))

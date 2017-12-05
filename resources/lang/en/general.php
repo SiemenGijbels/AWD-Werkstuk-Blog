@@ -37,5 +37,8 @@ return [
     'submit' => 'Submit',
     'admin' => 'Admin',
     'loadingblog' => 'Loading blog',
+    'adminindex' => 'Admin dashboard',
+    'adminedit' => 'Edit post',
+    'admincreate' => 'Create post',
 
 ];

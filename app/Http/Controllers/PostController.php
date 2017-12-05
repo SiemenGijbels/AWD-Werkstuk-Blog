@@ -43,7 +43,7 @@ class PostController extends Controller
 
     public function getAdminIndex() {
 
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->get();
 
         return view('admin.index', ['posts' => $posts]);
     }
@@ -74,12 +74,10 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required|min:3',
             'content' => 'required|min:3',
-            'mainimage_id' => 'required'
         ]);
         $post = new Post([
             'title' => $request->input('title'),
-            'content' => $request->input('content'),
-            'mainimage_id' => $request->input('mainimage_id')
+            'content' => $request->input('content')
         ]);
         $post->save();
         $post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
@@ -96,7 +94,6 @@ class PostController extends Controller
         $post = Post::find($request->input('id'));
         $post->title = $request->input('title');
         $post->content = $request->input('content');
-        $post->mainimage_id = $request->input('mainimage_id');
         $post->save();
 
         $post->tags()->sync($request->input('tags') === null ? [] : $request->input('tags'));
