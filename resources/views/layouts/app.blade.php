@@ -42,11 +42,47 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    <!--Language-->
+                    <ul>
+                        <li>
+                            <a href="#" class="currentLang">
+                                {{ Config::get('languages')[App::getLocale()] }}
+                            </a>
+                        </li>
+                        @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                                <li>
+                                    <a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
                     <!-- Authentication Links -->
                     @guest
                         <li><a href="{{ route('login') }}">@lang('general.login')</a></li>
                         <li><a href="{{ route('register') }}">@lang('general.register')</a></li>
                     @else
+
+                        @if (Route::has('login'))
+                            <div class="top-right links">
+                                <ul>
+                                    @auth
+                                        <li>
+                                            <a href="{{ url('/') }}">@lang('general.home')</a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="{{ route('login') }}">@lang('general.login')</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('register') }}">@lang('general.register')</a>
+                                        </li>
+                                    @endauth
+                                </ul>
+                            </div>
+                        @endif
+
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false" aria-haspopup="true">

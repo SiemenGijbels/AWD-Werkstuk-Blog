@@ -109,7 +109,6 @@
                 @endauth
             </ul>
         </div>
-        <section class="detailed-nav"></section>
     @endif
 
     <div class="content">

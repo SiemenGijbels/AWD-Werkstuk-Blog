@@ -15,5 +15,15 @@ return [
 
     'failed' => 'Deze credentials staan niet in onze database.',
     'throttle' => 'Te veel pogingen om je aan te melden. Probeer opnieuw in :seconds seconden.',
+    'email' => 'E-mail adres',
+    'password' => 'Wachtwoord',
+    'rememberme' => 'Herinner mij',
+    'forgotpassword' => 'Je wachtwoord vergeten?',
+    'confirmpassword' => 'Bevestig wachtwoord',
+    'name' => 'Naam',
+    '' => '',
+    '' => '',
+    '' => '',
+    '' => '',
 
 ];
