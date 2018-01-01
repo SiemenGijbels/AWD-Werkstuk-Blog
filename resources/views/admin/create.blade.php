@@ -30,6 +30,9 @@
                         <label for="content">@lang('general.content')</label>
                         <input type="text" class="form-control" id="content" name="content">
                     </div>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
+                    </div>
                     @foreach($tags as $tag)
                         <div class="checkbox">
                             <label>

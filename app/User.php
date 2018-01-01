@@ -15,6 +15,17 @@ class User extends Authenticatable
         $this->notify(new CustomPasswordReset($token));
     }
 
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
+
+    public function comments() {
+        return $this->hasMany('App\Comment', 'user_id', 'id')->withTimestamps();
+    }
+
+    public function likes() {
+        return $this->hasMany('App\Like');
+    }
 
     /**
      * The attributes that are mass assignable.

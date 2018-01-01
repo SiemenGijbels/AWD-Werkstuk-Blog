@@ -10,12 +10,20 @@
 .grid-item {
   width: percentage(.85/3);
   margin: 0 2.5% 100px 2.5%;
-  overflow: hidden;
 }
 
 .blogPics {
   width: 100%;
   height: 100%;
+}
+
+.archived {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+
+.archivedtext {
+  color: red;
 }
 
 .grid {
@@ -48,6 +56,15 @@
 
 .content {
   padding-top: 200px;
+}
+
+.activeFront {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.row {
+  margin: 0 50px;
 }
 
 table {

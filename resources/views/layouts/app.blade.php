@@ -11,11 +11,12 @@
     <title>@yield('page_title')</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/css/app.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+@yield('social_share')
 <div id="app">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -31,11 +32,60 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Blog
-                </a>
-            </div>
+                @if(Auth::user())
+                    <a href="{{ route('content.create') }}" class="btn btn-success" @if (\Request::is('admin'))style="display: none" @endif>@lang('general.newpost')</a>
+                @endif
 
+                @if (\Request::is('/'))
+                    <a class="navbar-brand activeFront" href="{{ url('/') }}">
+                        Blog
+                    </a>
+                    @if(Auth::user())
+                        <a class="navbar-brand" href="{{ route('content.archive') }}">
+                            @lang('general.archive')
+                        </a>
+                    @endif
+                    <a class="navbar-brand" href="{{ url('about') }}">
+                        @lang('general.about')
+                    </a>
+                @elseif (\Request::is('archive'))
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        Blog
+                    </a>
+                    @if(Auth::user())
+                        <a class="navbar-brand activeFront" href="{{ url('archive') }}">
+                            @lang('general.archive')
+                        </a>
+                    @endif
+                    <a class="navbar-brand" href="{{ url('about') }}">
+                        @lang('general.about')
+                    </a>
+                @elseif (\Request::is('about'))
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        Blog
+                    </a>
+                    @if(Auth::user())
+                        <a class="navbar-brand" href="{{ route('content.archive') }}">
+                            @lang('general.archive')
+                        </a>
+                    @endif
+                    <a class="navbar-brand activeFront" href="{{ url('about') }}">
+                        @lang('general.about')
+                    </a>
+                @else
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        Blog
+                    </a>
+                    @if(Auth::user())
+                        <a class="navbar-brand" href="{{ route('content.archive') }}">
+                            @lang('general.archive')
+                        </a>
+                    @endif
+                    <a class="navbar-brand" href="{{ url('about') }}">
+                        @lang('general.about')
+                    </a>
+                @endif
+            </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
@@ -67,8 +117,8 @@
 
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false" aria-haspopup="true">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
+                                <img src="{{ asset('uploads/avatars/') }}/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -76,7 +126,7 @@
                                 <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                     document.getElementById('logout-form').submit();">
                                         @lang('general.logout')
                                     </a>
 
@@ -84,6 +134,9 @@
                                           style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
+                                </li>
+                                <li>
+                                    <a href="{{ route('profile.index') }}">@lang('general.profile')</a>
                                 </li>
                                 @if(Auth::user()->type == 1)
                                     <li>
@@ -102,17 +155,17 @@
 
     @yield('content')
 </div>
-
+@yield('scripts')
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/masonry.pkgd.min.js') }}" type="text/javascript"></script>
 <script>
-        $('.blogPics').on('load', function() {
-            $('.grid').masonry({
-                itemSelector: '.grid-item'
-            });
-            $('.loading').fadeOut();
+    $('.blogPics').on('load', function () {
+        $('.grid').masonry({
+            itemSelector: '.grid-item'
         });
+        $('.loading').fadeOut();
+    });
 </script>
 </body>
 </html>
